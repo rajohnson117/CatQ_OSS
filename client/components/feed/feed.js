@@ -6,8 +6,8 @@ Template.feed.helpers({
   tickets: function () {
     return activeTickets();
   },
-  mentorsAvailable: function(){
-    return mentorsOnline().length;
+  TutorsAvailable: function(){
+    return TutorsOnline().length;
   },
   estimatedWait: function(){
     return formatTime(estimatedWait);

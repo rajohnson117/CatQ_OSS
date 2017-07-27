@@ -1,6 +1,6 @@
 Template.leaderboard.onCreated(function(){
   this.subscribe("ticketData");
-  this.subscribe("allMentors");
+  this.subscribe("allTutors");
   this.rows = new ReactiveVar();
 
   // TODO: Expand to more
@@ -8,41 +8,41 @@ Template.leaderboard.onCreated(function(){
 });
 
 Template.leaderboard.helpers({
-  topMentors: function(){
-    // Return the top number of mentors
-    return topMentors(Template.instance().rows.get());
+  topTutors: function(){
+    // Return the top number of Tutors
+    return topTutors(Template.instance().rows.get());
   }
 });
 
 // Ranking algorithm based on number of ratings and quality of ratings.
-function topMentors(num){
-  var mentors = {};
+function topTutors(num){
+  var Tutors = {};
   var tickets = Tickets.find({
     status: "COMPLETE"
   }).fetch().filter(function(t){return t.rating > 0});
 
-  // Each mentor has a set of ratings
+  // Each Tutor has a set of ratings
   tickets.forEach(function(t){
     if (t.claimId){
-      if (!mentors[t.claimId]) {
-        mentors[t.claimId] = {
+      if (!Tutors[t.claimId]) {
+        Tutors[t.claimId] = {
           ratings: []
         }
       }
-      mentors[t.claimId].ratings.push(t.rating);
+      Tutors[t.claimId].ratings.push(t.rating);
     }
   });
 
-  var ids = Object.keys(mentors);
+  var ids = Object.keys(Tutors);
   return ids
       .filter(function(id){
-        return Meteor.users.findOne({_id: id, 'profile.mentor': true});
+        return Meteor.users.findOne({_id: id, 'profile.Tutor': true});
       })
       .map(function(id){
         return {
           profile: Meteor.users.findOne({_id: id}).profile,
-          rating: laplaceSmooth(mentors[id].ratings),
-          numTickets: mentors[id].ratings.length
+          rating: laplaceSmooth(Tutors[id].ratings),
+          numTickets: Tutors[id].ratings.length
         }
       })
       .sort(function(a, b){

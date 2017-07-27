@@ -13,22 +13,22 @@
         {{/if}}
 
         <div class="right menu">
-          {{> navMentor }}
+          {{> navTutor }}
           {{> navAccount }}
         </div>
       </div>
     </div>
 
     <div id="mobile-nav">
-      {{#if userIs 'mentor'}}
+      {{#if userIs 'Tutor'}}
         <div class="ui bottom fixed three item labeled icon menu">
           <a class="item" href="/">
             <i class="home icon"></i>
             Home
           </a>
-          <a class="item" href="/mentor">
+          <a class="item" href="/Tutor">
             <i class="inbox icon"></i>
-            Mentor
+            Tutor
           </a>
           <a class="item" href="/profile">
             <i class="child icon"></i>
@@ -40,9 +40,9 @@
   {{/if}}
 </template>
 
-<template name="navMentor">
-  {{#if userIs 'mentor'}}
-    <a class="icon item" href="/mentor">
+<template name="navTutor">
+  {{#if userIs 'Tutor'}}
+    <a class="icon item" href="/Tutor">
       <i class="ui inbox icon"></i>
       {{#if openTickets}}
         <div class="ui tiny floating notification red label">

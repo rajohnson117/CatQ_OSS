@@ -16,12 +16,12 @@ Router.route('/profile', function(){
   this.render('profile');
 });
 
-Router.route('/mentor', function(){
+Router.route('/Tutor', function(){
   this.layout('bannerLayout');
-  if (authorized.mentor()){
-    this.render('mentor');
+  if (authorized.Tutor()){
+    this.render('Tutor');
   } else {
-    this.render('error', { data: { msg: "You're not a mentor!" }});
+    this.render('error', { data: { msg: "You're not a Tutor!" }});
   }
 });
 

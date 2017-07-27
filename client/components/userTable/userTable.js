@@ -2,15 +2,15 @@ var filters = {
   all: {}
   ,
   student: {
-    'profile.mentor': {
+    'profile.Tutor': {
       $in: [false, null]
     },
     'profile.admin': {
       $in: [false, null]
     }
   },
-  mentor: {
-    'profile.mentor': true
+  Tutor: {
+    'profile.Tutor': true
   },
   admin: {
     'profile.admin': true
@@ -50,8 +50,8 @@ Template.userTable.helpers({
 });
 
 Template.userTable.events({
-  'click .toggle-mentor': function(){
-    Meteor.call("toggleRole", "mentor", this._id);
+  'click .toggle-Tutor': function(){
+    Meteor.call("toggleRole", "Tutor", this._id);
   },
   'click .toggle-admin': function(){
     if (this._id === Meteor.userId()){

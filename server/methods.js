@@ -61,10 +61,10 @@ function claimTicket(id){
   var ticket = Tickets.findOne({_id: id});
   if (ticket.userId == this.userId) return;
 
-  // Mentor Only
-  if (authorized.mentor(this.userId)){
+  // Tutor Only
+  if (authorized.Tutor(this.userId)){
     var user = _getUser(this.userId);
-    // Mentors can only claim one ticket at a time.
+    // Tutors can only claim one ticket at a time.
     var currentClaim = Tickets.find({
       status: "CLAIMED",
       claimId: this.userId
@@ -94,8 +94,8 @@ function completeTicket(id){
   var ticket = Tickets.findOne({_id: id});
   if (ticket.userId == this.userId) return;
 
-  // Mentor only
-  if (authorized.mentor(this.userId)){
+  // Tutor only
+  if (authorized.Tutor(this.userId)){
     var user = _getUser(this.userId);
     Tickets.update({
       _id: id
@@ -115,8 +115,8 @@ function completeTicket(id){
 }
 
 function reopenTicket(id){
-  // Mentor only
-  if (authorized.mentor(this.userId)){
+  // Tutor only
+  if (authorized.Tutor(this.userId)){
     Tickets.update({
       _id: id
     },{
@@ -157,10 +157,10 @@ function rateTicket(id, rating, comments){
 
 function cancelTicket(id){
 
-  // Ticket owner or mentor
+  // Ticket owner or Tutor
   var ticket = Tickets.findOne({_id: id});
 
-  if (authorized.mentor(this.userId) || ticket.userId === this.userId){
+  if (authorized.Tutor(this.userId) || ticket.userId === this.userId){
     Tickets.update({
       _id: id
     },{
@@ -229,7 +229,7 @@ function deleteAnnouncement(id){
 function toggleRole(role, id){
   if (authorized.admin(this.userId)){
     // can only toggle available roles
-    var roles = ["admin", "mentor"];
+    var roles = ["admin", "Tutor"];
     if (roles.indexOf(role) < 0) return;
 
     var user = _getUser(id);
