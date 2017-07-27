@@ -15,14 +15,16 @@
     }
 
     .subheader {
-      font-size: 1.5em;
+      font-size: 2em;
       margin-bottom: .5em;
+      font-weight: bold;
+
     }
 
     .header {
       @include logo-font();
       font-size: 4em;
-      letter-spacing: .2em;
+      //letter-spacing: .2em;
       line-height: 1.33;
     }
 

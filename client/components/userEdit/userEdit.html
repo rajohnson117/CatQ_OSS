@@ -10,14 +10,6 @@
         <input type="email" class="profile" name='email' value="{{profile.email}}" placeholder="Email Address" required>
       </div>
       <div class="field">
-        <label>Phone</label>
-        <input type="tel" class="profile" name='phone' value="{{profile.phone}}" placeholder="Phone Number" required>
-      </div>
-      <div class="field">
-        <label>Company</label>
-        <input type="text" class="profile" name='company' value="{{profile.company}}" placeholder="Company/Position">
-      </div>
-      <div class="field">
         <label>Skills</label>
         {{#each skills}}
           <div class="ui label">
@@ -26,7 +18,7 @@
           </div>
         {{/each}}
         <div class="ui fluid action input">
-          <input type="text" name="skills" placeholder="node.js, ruby, python, machine learning, etc...">
+          <input type="text" name="skills" placeholder="Chemistry, Math, Writing, etc...">
           <div class="ui blue button add-skill">Add Skill</div>
         </div>
       </div>
