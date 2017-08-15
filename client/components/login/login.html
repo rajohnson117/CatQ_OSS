@@ -6,11 +6,27 @@
       </div>
     {{/if}}
 
+      <div class="ui login-password form">
+          <div class="field">
+              <label> Login here if you are a student. </label>
+          </div>
+      </div>
+
+      {{#if enabled.google}}
+          <br>
+          <button id="login-google" class="fluid facebook push button"> STUDENT LOGIN</button>
+      {{/if}}
 
 
-    <div class="ui login-password form">
+      <br/>
+      <br/>
+      <br/>
 
+
+
+      <div class="ui login-password form">
       <div class="field">
+          <label> Login here if you are staff</label>
         <label> Username </label>
         <input type="text" id='username' placeholder="Username">
       </div>
@@ -33,10 +49,6 @@
     <button id="login-facebook" class="fluid facebook push button"> Login with Facebook</button>
 {{/if}}
 
-      {{#if enabled.google}}
-          <br>
-          <button id="login-google" class="fluid facebook push button"> STUDENT LOGIN</button>
-      {{/if}}
 
 
   </div>
