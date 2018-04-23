@@ -8,6 +8,6 @@ Meteor.subscribe("activeTickets");
 
 Meteor.subscribe("allAnnouncements");
 
-Meteor.subscribe("TutorsOnline");
+Meteor.subscribe("mentorsOnline");
 
 Meteor.subscribe("settings");

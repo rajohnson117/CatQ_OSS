@@ -6,7 +6,7 @@ window.authorized = {
   admin: function(){
     return Meteor.user() && Meteor.user().profile.admin;
   },
-  Tutor: function(){
-    return Meteor.user() && Meteor.user().profile.Tutor;
+  mentor: function(){
+    return Meteor.user() && Meteor.user().profile.mentor;
   }
 };

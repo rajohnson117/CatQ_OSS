@@ -1,7 +1,7 @@
 // -----------------------------
-// Tutor section of Nav
+// Mentor section of Nav
 // -----------------------------
-Template.navTutor.helpers({
+Template.navMentor.helpers({
   openTickets: function(){
     return Tickets.find({
       status: {

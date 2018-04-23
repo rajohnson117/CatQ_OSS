@@ -12,8 +12,8 @@ authorized = {
     var user = _getUser(id);
     return user.profile.admin
   },
-  Tutor: function(id){
+  mentor: function(id){
     var user = _getUser(id);
-    return user.profile.admin || user.profile.Tutor
+    return user.profile.admin || user.profile.mentor
   }
 };

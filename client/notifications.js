@@ -33,7 +33,7 @@ Tracker.autorun(function(){
 });
 
 Tracker.autorun(function(){
-  if (authorized.Tutor()){
+  if (authorized.mentor()){
     var activeCount = Tickets.find({
       status: 'OPEN'
     }).count();

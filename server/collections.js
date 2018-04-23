@@ -54,7 +54,7 @@ Settings = new Meteor.Collection('settings');
  *      email: STRING
  *      phone: STRING
  *      company: STRING
- *      Tutor: BOOLEAN
+ *      mentor: BOOLEAN
  *      admin: BOOLEAN
  *      skills: [STRING]
  *    }
@@ -80,16 +80,16 @@ Tickets.allow({
     return false;
   },
   update: function () {
-    // Only admin and Tutors can modify tickets
+    // Only admin and mentors can modify tickets
     return false;
     // Enable below to allow client modifications
-    //return Meteor.user().profile.admin || Meteor.user().profile.Tutor;
+    //return Meteor.user().profile.admin || Meteor.user().profile.mentor;
   },
   remove: function () {
-    // Only admin and Tutors can remove tickets
+    // Only admin and mentors can remove tickets
     return false;
     // Enable below to allow client modifications
-    //return Meteor.user().profile.admin || Meteor.user().profile.Tutor;
+    //return Meteor.user().profile.admin || Meteor.user().profile.mentor;
   }
 });
 

@@ -20,9 +20,9 @@
               <div class="ui empty circular label"></div>
               All
             </div>
-            <div class="filter item" data-filter="Tutor">
+            <div class="filter item" data-filter="mentor">
               <div class="ui blue empty circular label"></div>
-              Tutor
+              Mentor
             </div>
             <div class="filter item" data-filter="admin">
               <div class="ui yellow empty circular label"></div>
@@ -44,7 +44,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Subject</th>
+      <th>Skills</th>
       <th></th>
     </tr>
     </thead>
@@ -84,13 +84,13 @@
         </td>
 
         <td class="right aligned collapsing">
-          {{#if profile.Tutor}}
-            <span class="ui tiny blue button toggle-Tutor">
-            Tutor
+          {{#if profile.mentor}}
+            <span class="ui tiny blue button toggle-mentor">
+            Mentor
           </span>
           {{else}}
-            <span class="ui tiny basic button toggle-Tutor">
-            Tutor
+            <span class="ui tiny basic button toggle-mentor">
+            Mentor
           </span>
           {{/if}}
 

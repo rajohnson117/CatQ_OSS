@@ -16,12 +16,12 @@ Router.route('/profile', function(){
   this.render('profile');
 });
 
-Router.route('/Tutor', function(){
+Router.route('/mentor', function(){
   this.layout('bannerLayout');
-  if (authorized.Tutor()){
-    this.render('Tutor');
+  if (authorized.mentor()){
+    this.render('mentor');
   } else {
-    this.render('error', { data: { msg: "Sorry, this page isn't available to you, please hit the home icon in the rop left corner!" }});
+    this.render('error', { data: { msg: "You're not a mentor!" }});
   }
 });
 
@@ -30,6 +30,6 @@ Router.route('/admin', function(){
   if (authorized.admin()){
     this.render('admin');
   } else {
-    this.render('error', { data: { msg: "Sorry, this page isn't available to you, please hit the home icon in the rop left corner!" }});
+    this.render('error', { data: { msg: "You're not an admin!" }});
   }
 });

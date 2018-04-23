@@ -1,15 +1,15 @@
-Template.TutorStatus.onCreated(function(){
-  this.subscribe('TutorsOnline');
+Template.mentorStatus.onCreated(function(){
+  this.subscribe('mentorsOnline');
   this.subscribe('ticketData');
   this.subscribe('activeTickets');
 });
 
-Template.TutorStatus.helpers({
-  TutorsAvailable: function(){
-    return TutorsOnline().length;
+Template.mentorStatus.helpers({
+  mentorsAvailable: function(){
+    return mentorsOnline().length;
   },
-  TutorsText: function(){
-    return TutorsOnline().length == 1 ? "Tutor" : "Tutors";
+  mentorsText: function(){
+    return mentorsOnline().length == 1 ? "mentor" : "mentors";
   },
   estimatedWait: function(){
     return formatTime(estimatedWait());
@@ -48,9 +48,9 @@ function activeTickets(){
   }).fetch();
 }
 
-function TutorsOnline(){
+function mentorsOnline(){
   return Meteor.users.find({
-    'profile.Tutor': true
+    'profile.mentor': true
   }, {
     'status.online': true
   }).fetch();
@@ -59,7 +59,7 @@ function TutorsOnline(){
 /**
  * Calculate wait time based off of a combination of:
  * - number of currently open/claimed tickets
- * - Tutors online
+ * - mentors online
  * - average wait time
  * - Otherwise, "Uncertain"
  *
@@ -73,12 +73,12 @@ function TutorsOnline(){
  * All tickets are open:
  * Combination of open and claimed tickets:
  *
- * With the number of Tutors available, simulate the amount of time to completion.
+ * With the number of mentors available, simulate the amount of time to completion.
  */
 function estimatedWait(){
 
-  // Get a list of the Tutors who are online
-  var Tutors = TutorsOnline();
+  // Get a list of the mentors who are online
+  var mentors = mentorsOnline();
 
   // Get the currently active tickets
   var tickets = activeTickets();
@@ -87,10 +87,10 @@ function estimatedWait(){
   var openTickets = tickets.filter(function(t){return t.status === "OPEN"});
   var claimedTickets = tickets.filter(function(t){return t.status === "CLAIMED"});
 
-  var claimTutors = claimedTutors(claimedTickets);
+  var claimMentors = claimedMentors(claimedTickets);
 
-  var unclaimedOnline = Tutors.filter(function(m){
-    return !claimTutors[m._id];
+  var unclaimedOnline = mentors.filter(function(m){
+    return !claimMentors[m._id];
   });
 
   // Median completion time
@@ -100,12 +100,12 @@ function estimatedWait(){
   var estCompletion = stats.median(completeTickets.map(function(t){return t.completeTime - t.claimTime}));
   var estResponse = stats.median(completeTickets.map(function(t){return t.claimTime - t.timestamp}));
 
-  if (Tutors.length > 0 && openTickets.length >=0){
+  if (mentors.length > 0 && openTickets.length >=0){
     if (openTickets.length < unclaimedOnline.length){
       return estResponse;
     } else {
-      // There are more open tickets than there are Tutors
-      // Tutors have to either complete the current tickets
+      // There are more open tickets than there are mentors
+      // Mentors have to either complete the current tickets
       // or finish up on the tickets they've claimed
       var now = Date.now();
 
@@ -131,17 +131,17 @@ function estimatedWait(){
 }
 
 /**
- * Get the Tutors who have claimed tickets, and the ticket
+ * Get the mentors who have claimed tickets, and the ticket
  * @param tickets: a ticket
  *
- * @returns: [{ TutorId: ticketId }]
+ * @returns: [{ mentorId: ticketId }]
  */
-function claimedTutors(tickets){
-  var Tutors = {};
+function claimedMentors(tickets){
+  var mentors = {};
   tickets.forEach(function(t){
     if (t.claimId){
-      Tutors[t.claimId] = t._id;
+      mentors[t.claimId] = t._id;
     }
   });
-  return Tutors;
+  return mentors;
 }
