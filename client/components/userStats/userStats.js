@@ -7,15 +7,15 @@ Template.userStats.helpers({
   users: function(){
     return users();
   },
-  mentors: function(){
+  tutors: function(){
     return Meteor.users.find({
-      'profile.mentor': true
+      'profile.tutor': true
     }).fetch();
   },
   ticketCount: function(){
     return tickets().length;
   },
-  activeMentors: function(){
+  activetutors: function(){
     return uniqueProp('claimId');
   },
   activeUsers: function(){

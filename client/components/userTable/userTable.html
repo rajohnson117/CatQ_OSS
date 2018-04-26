@@ -20,17 +20,17 @@
               <div class="ui empty circular label"></div>
               All
             </div>
-            <div class="filter item" data-filter="mentor">
+            <div class="filter item" data-filter="tutor">
               <div class="ui blue empty circular label"></div>
-              Mentor
+              Tutors
             </div>
             <div class="filter item" data-filter="admin">
               <div class="ui yellow empty circular label"></div>
-              Admin
+              Admins
             </div>
             <div class="filter item" data-filter="student">
               <div class="ui black empty circular label"></div>
-              Student
+              Students
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
       <th>Username</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Phone</th>
+      <!--<th>Phone</th>-->
       <th>Skills</th>
       <th></th>
     </tr>
@@ -68,12 +68,13 @@
             {{ profile.email }}
           {{else}}
             {{ services.github.email }}
+              {{ services.google.email }}
           {{/if}}
         </td>
 
-        <td>
-          {{ profile.phone }}
-        </td>
+        <!--<td>-->
+          <!--{{ profile.phone }}-->
+        <!--</td>-->
 
         <td>
           {{#each profile.skills }}
@@ -84,13 +85,13 @@
         </td>
 
         <td class="right aligned collapsing">
-          {{#if profile.mentor}}
-            <span class="ui tiny blue button toggle-mentor">
-            Mentor
+          {{#if profile.tutor}}
+            <span class="ui tiny blue button toggle-tutor">
+            Tutor
           </span>
           {{else}}
-            <span class="ui tiny basic button toggle-mentor">
-            Mentor
+            <span class="ui tiny basic button toggle-tutor">
+            Tutor
           </span>
           {{/if}}
 

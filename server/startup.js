@@ -47,8 +47,8 @@ Meteor.startup(function(){
     if (options.profile){
       user.profile = options.profile;
 
-      if (config.defaultMentor){
-        user.profile.mentor = true;
+      if (config.defaulttutor){
+        user.profile.tutor = true;
       }
     }
 

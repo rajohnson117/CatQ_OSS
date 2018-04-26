@@ -4,8 +4,8 @@
 
 Meteor.publish("userData", getUserData);
 Meteor.publish("allUsers", getAllUsers);
-Meteor.publish("allMentors", getAllMentors);
-Meteor.publish("mentorsOnline", getMentorsOnline);
+Meteor.publish("alltutors", getAlltutors);
+Meteor.publish("tutorsOnline", gettutorsOnline);
 
 Meteor.publish("activeTickets", getActiveTickets);
 Meteor.publish("allTickets", getAllTickets);
@@ -46,15 +46,15 @@ function getAllUsers(){
   }
 }
 
-// Mentors are able to see each other.
-function getAllMentors(){
-  if (authorized.mentor(this.userId)){
+// tutors are able to see each other.
+function getAlltutors(){
+  if (authorized.tutor(this.userId)){
     return Meteor.users.find({
-      'profile.mentor': true
+      'profile.tutor': true
     },{
       fields: {
         'profile.name': 1,
-        'profile.mentor': 1,
+        'profile.tutor': 1,
         'profile.company': 1,
         'profile.skills': 1,
         'services.facebook.id': 1
@@ -63,11 +63,11 @@ function getAllMentors(){
   }
 }
 
-// All users can see any mentor that is currently online
-function getMentorsOnline(){
+// All users can see any tutor that is currently online
+function gettutorsOnline(){
   if (authorized.user(this.userId)) {
     return Meteor.users.find({
-      'profile.mentor': true,
+      'profile.tutor': true,
       'status.online': true
     }, {
       fields: {
@@ -75,7 +75,7 @@ function getMentorsOnline(){
         'profile.email': 1,
         'profile.phone': 1,
         'profile.admin': 1,
-        'profile.mentor': 1,
+        'profile.tutor': 1,
         'profile.skills': 1,
         'status.idle': 1,
         'status.online': 1

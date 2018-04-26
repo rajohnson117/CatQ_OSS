@@ -1,15 +1,15 @@
 Template.skillsList.onCreated(function(){
-  this.subscribe("allMentors");
+  this.subscribe("alltutors");
 });
 
 Template.skillsList.helpers({
   skills: function(){
     var skills = {};
-    Meteor.users.find({ 'profile.mentor': true})
+    Meteor.users.find({ 'profile.tutor': true})
         .fetch()
-        .forEach(function(mentor){
-          if (mentor.profile.skills){
-            mentor.profile.skills.forEach(function(skill){
+        .forEach(function(tutor){
+          if (tutor.profile.skills){
+            tutor.profile.skills.forEach(function(skill){
               var s = skill.toLowerCase();
               if (skills[s]){
                 skills[s]++;

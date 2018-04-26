@@ -15,9 +15,9 @@
                 </p>
 
                 {{#if expirationFromNow}}
-                  <p>
-                    Your ticket will expire {{expirationFromNow}}.
-                  </p>
+                  <!--<p>-->
+                    <!--Your ticket will expire {{expirationFromNow}}.-->
+                  <!--</p>-->
                 {{/if}}
               </div>
             {{/if}}
@@ -61,7 +61,7 @@
               {{constant 'TICKET_PANEL_TOPIC'}}
               <br>
               <input id="topic"
-                     type="text"
+                     type="number"
                      name="topic"
                      class="clean"
                      placeholder="{{constant 'TICKET_PANEL_TOPIC_PLACEHOLDER'}}">
@@ -69,7 +69,7 @@
               {{constant 'TICKET_PANEL_LOCATION'}}
               <br>
               <input id="location"
-                     type="text"
+                     type="number"
                      name="location"
                      class="clean"
                      placeholder="{{constant 'TICKET_PANEL_LOCATION_PLACEHOLDER'}}">

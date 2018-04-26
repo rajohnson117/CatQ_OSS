@@ -1,13 +1,13 @@
-<template name="mentorStatus">
+<template name="tutorStatus">
   <div class="ui segment">
-    {{#if mentorsAvailable}}
+    {{#if tutorsAvailable}}
       <div class="ui green empty circular label"
            style="margin-right: 4px"></div>
-      <strong>{{mentorsAvailable}}</strong> {{mentorsText}} online.
-      Estimated wait: <strong>{{estimatedWait}}</strong>
+      <strong>{{tutorsAvailable}}</strong> {{tutorsText}} available to claim tickets.
+      <!--Estimated wait: <strong>{{estimatedWait}}</strong>-->
     {{else}}
       <div class="ui red empty circular label"
-           style="margin-right: 4px"></div> No mentors online right now.
+           style="margin-right: 4px"></div> No tutors online right now.
     {{/if}}
   </div>
 </template>

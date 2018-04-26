@@ -1,39 +1,50 @@
 <template name="login">
-  <div id="login" class="ui segment">
-    {{#if error}}
-      <div class="ui small error message">
-        {{error}}
-      </div>
-    {{/if}}
-    <div class="ui login-password form">
+    <div id="login" class="ui segment">
+        {{#if error}}
+            <div class="ui small error message">
+                {{error}}
+            </div>
+        {{/if}}
 
-        <h3 style="text-align: center;color: black;">Mentors Login below</h3>
+        <div class="ui login-password form">
+            <div class="field">
+                <label> Login here if you are a student. </label>
+            </div>
+        </div>
 
-      <div class="field">
-        <label> Username </label>
-        <input type="text" id='username' placeholder="Username">
-      </div>
-      <div class="field">
-        <label> Password </label>
-        <input type="password" id='password' placeholder="Password">
-      </div>
-      <div class="field">
-        <button id="login-password" class="fluid primary push button">Mentor Login </button>
-      </div>
+        {{#if enabled.google}}
+            <br>
+            <button id="login-google" class="fluid facebook push button"> STUDENT LOGIN</button>
+        {{/if}}
+
+        <br>
+
+        <div class="ui login-password form">
+            <div class="field">
+                <label> Login below if you are staff</label>
+                <label> Username </label>
+                <input type="text" id='username' placeholder="Username">
+            </div>
+            <div class="field">
+                <label> Password </label>
+                <input type="password" id='password' placeholder="Password">
+            </div>
+            <div class="field">
+                <button id="login-password" class="fluid primary push button"> STAFF LOGIN </button>
+            </div>
+        </div>
+
+        {{#if enabled.github}}
+            <br>
+            <button id="login-github" class="fluid github push button"> Login with Github </button>
+        {{/if}}
+
+        {{#if enabled.facebook}}
+            <br>
+            <button id="login-facebook" class="fluid facebook push button"> Login with Facebook</button>
+        {{/if}}
+
+
+
     </div>
-
-    {{#if enabled.github}}
-    <br>
-    <button id="login-github" class="fluid github push button"> Login with Github </button>
-    {{/if}}
-
-    {{#if enabled.facebook}}
-    <br>
-    <button id="login-facebook" class="fluid facebook push button"> Login with Facebook</button>
-    {{/if}}
-      {{#if enabled.google}}
-          <br>
-          <button id="login-google" class="fluid facebook push button"> Login with Google</button>
-      {{/if}}
-  </div>
 </template>

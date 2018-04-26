@@ -2,12 +2,12 @@
   <div class="ui blue segment">
     {{#with claimTimes}}
       <div>
-        Average response time:
+        Average Tutor response time:
         <h2>
           {{meanTime}}
         </h2>
         <div>
-          Median: <strong>{{medianTime}}</strong>, Std Dev:<strong>{{stdDevTime}}</strong>
+          Median: <strong>{{medianTime}}</strong>, Ticket held the longest:<strong>{{stdDevTime}}</strong>
         </div>
       </div>
     {{/with}}
@@ -16,12 +16,12 @@
 
     {{#with completeTimes}}
       <div>
-          Average Completion time:
+          Average Tutor Completion time:
         <h2>
           {{meanTime}}
         </h2>
         <div>
-          Median: <strong>{{medianTime}}</strong>, Std Dev: <strong>{{stdDevTime}}</strong>
+          Median: <strong>{{medianTime}}</strong>, Ticket completed the longest: <strong>{{stdDevTime}}</strong>
         </div>
       </div>
     {{/with}}
@@ -30,7 +30,7 @@
 
     {{#with ratings}}
       <div>
-        Average Rating:
+        Average Tutor Rating:
         <h2>
           {{mean}}
           <i class="yellow star icon"></i>

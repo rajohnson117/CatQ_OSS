@@ -2,25 +2,25 @@
   <div class="userStats">
     <div class="ui top attached tertiary header segment">
       <strong>
-        User Summary
+        Student and Tutor Summaries
       </strong>
     </div>
     <div class="ui bottom attached segment">
 
       <div>
-        Total Users:
+        Total Students Logged in:
         <strong>
         {{ users.length }}
         </strong>
       </div>
       <div>
-        Total Mentors:
+        Total Active Tutors:
         <strong>
-          {{ mentors.length }}
+          {{ tutors.length }}
         </strong>
       </div>
       <div>
-        Total Tickets:
+        Total Tickets submitted:
         <strong>
           {{ ticketCount }}
         </strong>
@@ -29,16 +29,16 @@
       <br>
 
       <p>
-        Of <strong>{{users.length}}</strong> users,
-        <strong>{{activeUsers}}</strong> have submitted tickets.
+        Out of <strong>{{users.length}}</strong> students,
+        <strong>{{activeUsers}}</strong> have submitted tickets this semester.
       </p>
 
       <p>
-        Of <strong>{{mentors.length}}</strong> mentors,
-        <strong>{{activeMentors}}</strong> have completed tickets.
+        Out of <strong>{{tutors.length}}</strong> total tutors,
+        <strong>{{activetutors}}</strong> have completed tickets this semester.
       </p>
 
-      <h4 class="ui dividing header">Topic Word Frequencies</h4>
+      <h4 class="ui dividing header">Frequent Subjects and Totals</h4>
 
       <div class="ui labels">
         {{#each wordFreqs}}
